@@ -1,0 +1,4 @@
+*.egg-info/
+.idea
+/smFISH_curie
+/focianalysis/_version.py

@@ -1,0 +1,93 @@
+# --- Directories ---
+# path_in: list of strings with paths to foci analysis folders
+# path_out: string of path to output folders
+path_in: ["/DATA/lenstra_lab/j.meeussen/Foci_analysis/20211214_testdata/"]
+path_out: "/DATA/lenstra_lab/j.meeussen/Foci_analysis/20211214_testdata/"
+
+# --- Specify replicates/conditions/colors ---
+# conditions_to_analyze: list of conditions to analyze
+# color_palette: list of matplotlib/hex colors which are used to color conditions.
+conditions_to_analyze: []
+color_palette: []
+
+# --- Specify which plots to make ---
+# plotCom: set to 1 to combine replicates and compare conditions
+# legend: set to 1 to display plot legends
+# color: specify which channel to take (either 'ch1' or 'ch2') for plotNum, plotInt and plotNrPar
+# pixel_size_xy: pixel size xy in um (0.097)
+# pixel_size_z: pixel size z in um (0.250)
+# foci_name: specify how foci are called in plots (str)
+# plt_params: put parameters to plot as string in a list, like: ['s', 'Ip', 'I']
+#plt_params: ['s', 'Ip', 'Ii']
+# plt_params_labels: ['sigma xy (μm)', 'peak intensity (a.u.)', 'integrated intensity (a.u.)']
+# plt_params_y_min: minimal axis values for params (keep same order)
+# plt_params_y_max: maximal axis values for params (keep same order)
+# plt_sci_text: whether to display the scientific notation magnitude alongside the axis
+# file_type: extension of plot file as string, like: '.svg' (preferred; high quality and transparent plots work on windows as well), '.pdf' (transparancy problems in powerpoint), '.png',  '.jpg'.
+# location: specify whether to plot 'cell' or 'nucleus' foci
+# plotNum:
+#   - plot: set to 1 to plot histograms of foci number per cell
+#   - xmax: left edge of greatest bin of number of foci
+#   - ymax: upper bound of frequency displayed on y-axis, so value between 0 and 1.
+# plotInt:
+#   - plot: set to 1 to plot jitterplots of foci intensity
+# plotNrPar:
+#   - plot: set to 1 to plot intensity against number of foci per cell
+#   - ymin: lower bound of intensity displayed on y-axis
+#   - ymax: upper bound of intensity displayed on y-axis.
+# plotDis:
+#   -plot: set to 1 to make distance plots
+#   -plot_3D: set to 1 to make 3D distance plots
+#   -plot_2D: set to 1 to make 2D distance plots
+#   -plot_RDM: set to 1 to make RDM (random ref spot) distance plots
+#   -plot_params: set to 1 to make parameter plots vs xD distance
+#   -plot_par_xD: '3D' or '2D', depending on what distance to use for plot_params
+#   -binSize: bin size of distance plots in um
+#   -threshold: distance threshold to determine foci-ref overlap in um
+#   -x_max: maximal x axis value in um for distance plots
+#   -y_max_frq: maximal y values of frequency plots (max == 1)
+#   -y_max_bar: maximal y values of bar plots of overlap fraction below threshold
+#   -ref_name: specify label name of reference point ('$GAL10$ TS" or 'DNA label')
+#   -ch_ref: specify channel of reference point ('ch1')
+
+plotCom: 1
+legend: 1
+color: 'ch1'
+pixel_size_xy: 0.09707
+pixel_size_z: 0.250
+foci_name: 'Cluster'
+location: 'cell'
+plt_params: ['s', 'Ip', 'Ii']
+plt_params_labels: ['sigma xy (μm)', 'peak intensity (a.u.)', 'integrated intensity (a.u.)']
+plt_params_y_min: [0, 0, 0]
+plt_params_y_max: [0.4, 1.5e4, 1.5e6]
+plt_sci_text: True
+file_type: '.svg'
+
+plotNum:
+    plot: 0
+    x_max: 6
+    y_max: 1
+
+plotPar:
+    plot: 0
+
+plotNrPar:
+    plot: 0
+    y_min: 0
+    y_max: 0
+
+plotDis:
+    plot: 0
+    plot_3D: 0
+    plot_2D: 1
+    plot_RDM: 0
+    plot_params: 0
+    plot_par_xD: '3D'
+    binSize: 0.1
+    threshold: 0.4
+    x_max: 2
+    y_max_frq: 0.3
+    y_max_bar: 1
+    ref_name: 'DNA label'
+    ch_ref: 'ch1'
